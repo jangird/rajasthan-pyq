@@ -4,6 +4,7 @@ let score = 0;
 const questionText = document.getElementById("question");
 const optionsBox = document.getElementById("options");
 const nextBtn = document.getElementById("next-btn");
+const prevBtn = document.getElementById("prev-btn");
 const scoreText = document.getElementById("score");
 
 function loadQuestion() {
@@ -20,6 +21,9 @@ function loadQuestion() {
 
     optionsBox.appendChild(btn);
   });
+
+  // Prev button hide on first question
+  prevBtn.style.display = currentQuestion === 0 ? "none" : "inline-block";
 }
 
 function checkAnswer(selected) {
@@ -29,12 +33,17 @@ function checkAnswer(selected) {
     score++;
     alert("✅ Correct Answer!");
   } else {
-    alert("❌ Wrong! Correct: " + correct);
+    alert("❌ Wrong! Correct Answer: " + correct);
   }
 
   scoreText.innerText = "Score: " + score;
+
+  // Disable options after answering
+  let allButtons = optionsBox.querySelectorAll("button");
+  allButtons.forEach(btn => btn.disabled = true);
 }
 
+// Next Button
 nextBtn.onclick = () => {
   currentQuestion++;
 
@@ -44,8 +53,17 @@ nextBtn.onclick = () => {
     questionText.innerText = "🎉 Quiz Finished!";
     optionsBox.innerHTML = "";
     nextBtn.style.display = "none";
+    prevBtn.style.display = "none";
   }
 };
 
-loadQuestion();
+// Previous Button
+prevBtn.onclick = () => {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    loadQuestion();
+  }
+};
 
+// Load First Question
+loadQuestion();
