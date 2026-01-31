@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajasthan Police Quiz</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>🚔 Rajasthan Police Quiz</h1>
+    <p>Previous Year Questions Practice</p>
+  </header>
+
+  <!-- Quiz Box -->
+  <div class="quiz-box">
+
+    <!-- Progress -->
+    <div class="progress">
+      <div id="progress-bar"></div>
+    </div>
+
+    <!-- Question -->
+    <h2 id="question">Question will appear here...</h2>
+
+    <!-- Options -->
+    <div class="options">
+      <button class="option" onclick="checkAnswer(0)">Option 1</button>
+      <button class="option" onclick="checkAnswer(1)">Option 2</button>
+      <button class="option" onclick="checkAnswer(2)">Option 3</button>
+      <button class="option" onclick="checkAnswer(3)">Option 4</button>
+    </div>
+
+    <!-- Next Button -->
+    <button id="next-btn" onclick="nextQuestion()">Next Question ➜</button>
+
+    <!-- Score -->
+    <p id="score-box">Score: 0</p>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
+
