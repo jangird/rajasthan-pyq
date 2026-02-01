@@ -1,4 +1,12 @@
-let currentQuestion = 0;
+<script>
+let today = new Date().toDateString();
+
+if(localStorage.getItem("lastDate") !== today){
+  localStorage.setItem("freeQuizUsed", 0);
+  localStorage.setItem("lastDate", today);
+}
+</script>
+  let currentQuestion = 0;
 let score = 0;
 
 const questionText = document.getElementById("question");
