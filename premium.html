@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Premium Content</title>
+</head>
+<body style="font-family:Arial; text-align:center; padding:50px;">
+
+<script>
+  // Premium Check
+  if(localStorage.getItem("premiumUser") !== "true"){
+    alert("Premium Required ❌");
+    window.location.href = "buy-premium.html";
+  }
+</script>
+
+<h1>🎉 Welcome Premium User</h1>
+<p>Now you can access unlimited quizzes and PDFs.</p>
+
+<button onclick="logoutPremium()"
+style="padding:10px 20px; background:red; color:white; border:none; border-radius:8px;">
+  Logout Premium
+</button>
+
+<script>
+  function logoutPremium(){
+    localStorage.removeItem("premiumUser");
+    alert("Premium Removed!");
+    window.location.href="index.html";
+  }
+</script>
+
+</body>
+</html>
+
