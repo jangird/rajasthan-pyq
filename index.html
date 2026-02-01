@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  let today = new Date().toDateString();
+
+if(localStorage.getItem("lastDate") !== today){
+  localStorage.setItem("freeQuizUsed", 0);
+  localStorage.setItem("lastDate", today);
+}
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rajasthan GK Quiz - REET Level 1</title>
